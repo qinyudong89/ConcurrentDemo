@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class ContextAwareThreadPoolExecutorTest {
     @Test
     public void testContextAwareThreadPoolExecutor() throws InterruptedException {
-        ContextAwareThreadPoolExecutor executor = new ContextAwareThreadPoolExecutor(2, 2, 0, TimeUnit.MILLISECONDS);
+        ContextAwareThreadPoolExecutor executor = new ContextAwareThreadPoolExecutor(1, 1, 0, TimeUnit.SECONDS);
 
         // 设置上下文信息
         executor.setContext("Test Context");
@@ -42,6 +42,7 @@ public class ContextAwareThreadPoolExecutorTest {
 
         @Override
         public void run() {
+
             // 执行任务逻辑
             System.out.println("Executing task with context: " + context);
         }

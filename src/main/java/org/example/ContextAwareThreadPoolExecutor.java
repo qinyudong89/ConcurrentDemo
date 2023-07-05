@@ -1,6 +1,7 @@
 package org.example;
 
 /**
+ * 通过InheritableThreadLocal 实现父子线程之间值传递（传递的值是浅直拷贝，存在线程安全问题）
  * @Author : Morgan.Qin
  * @create 2023/7/4 7:22
  */
@@ -9,7 +10,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 public class ContextAwareThreadPoolExecutor extends ThreadPoolExecutor {
-    private ThreadLocal<String> context = new ThreadLocal<>();
+    private static ThreadLocal<String> context = new InheritableThreadLocal<>();
 
     public ContextAwareThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit) {
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit, new LinkedBlockingQueue<>());

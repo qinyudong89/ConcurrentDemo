@@ -14,7 +14,7 @@ public class ThreadContextExample {
 
     public static void main(String[] args) {
         // 主线程设置上下文信息
-        context.set("User: Morgan Qin");
+        context.set("Hi: Morgan Qin");
         System.out.println("current thread id: " + Thread.currentThread().getId() + ", context: " + context.get());
 
         // 提交任务到线程池
